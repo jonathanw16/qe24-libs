@@ -22,7 +22,6 @@ def call(name, key, value) {
         def content = docAMI.contentAsObject()
         content.put(key, value)
         collection.replace(name, content, replaceOptions().cas(docAMI.cas()))
-        
         return 'success'
     }catch(cbex) {
         return 'fail'

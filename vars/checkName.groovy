@@ -22,7 +22,7 @@ def call(name) {
         def docName = collection.get(name)
         return true 
     }catch(DocumentExistsException docex) {
-        def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name))
+        def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name).put("PIPELINE_STATUS", "STARTED"))
         return false
     }
 }

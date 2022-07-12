@@ -25,7 +25,7 @@ def call(name) {
     try{
         def docName = collection.get(name)
         return true 
-    }catch(docex) {
+    }catch(DocumentExistsException docex) {
         def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name))
         return false
     }

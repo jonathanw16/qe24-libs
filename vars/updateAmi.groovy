@@ -1,9 +1,6 @@
-/*import com.couchbase.client.java.*
-import com.couchbase.client.java.kv.*
-import com.couchbase.client.java.json.*;
-import com.couchbase.client.java.query.*
-import static com.couchbase.client.java.kv.ReplaceOptions.replaceOptions
-import com.couchbase.client.core.error.CouchbaseException*/
+ @Grab(group='com.couchbase.client', module='java-client', version='3.3.1')
+
+ 
 
 def call(name, key, value) {
     def cluster = Cluster.connect("couchbases://cb.eh32avgkwwptcnks.cloud.couchbase.com", "jonwilcb", "Pixelj_2112")

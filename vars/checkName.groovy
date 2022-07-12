@@ -13,7 +13,7 @@ def call(name) {
     try{
         def docName = collection.get(name)
         return true 
-    }catch(CouchbaseException docex) {
+    }catch(docex) {
         def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name))
         return false
     }

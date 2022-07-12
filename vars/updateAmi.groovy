@@ -20,7 +20,7 @@ def call(name, key, value) {
     try{
         def docAMI = collection.get(name)
         def content = docAMI.contentAsObject()
-        content.put(key, value, replaceOptions().cas(docAMI.cas()))
+        content.put(key, value)
         collection.replace(name, content, replaceOptions().cas(docAMI.cas()))
         
         return 'success'

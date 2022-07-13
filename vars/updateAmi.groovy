@@ -26,5 +26,5 @@ def call(name, key, value) {
     }catch(cbex) {
         return 'fail'
     }
-    Cluster.disconnect()
+    cluster.disconnect()
 }

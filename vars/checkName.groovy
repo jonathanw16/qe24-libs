@@ -32,5 +32,5 @@ def call(name) {
         println('failed to check name')
     }
 
-    Cluster.disconnect()
+    cluster.disconnect()
 }

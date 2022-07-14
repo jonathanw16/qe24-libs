@@ -11,8 +11,8 @@ import com.couchbase.client.java.json.JsonObject;
 import com.couchbase.client.java.kv.GetResult;
 import com.couchbase.client.java.kv.MutationResult;
 
-def call(name, key, value) {
-    def cluster = Cluster.connect("couchbases://cb.eh32avgkwwptcnks.cloud.couchbase.com", "jonwilcb", "Pixelj_2112")
+def call(name, key, value, connectString, username, password) {
+    def cluster = Cluster.connect(connectString, username, password)
     def bucket = cluster.bucket("travel-sample")
     def scope = bucket.scope("tenant_agent_00")
     def collection = scope.collection("users")

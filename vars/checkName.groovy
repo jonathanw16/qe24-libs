@@ -16,8 +16,8 @@ import com.couchbase.client.java.kv.MutationResult;
 import com.couchbase.client.java.kv.PersistTo;
 import com.couchbase.client.java.kv.ReplicateTo;
 
-def call(name) {
-    def cluster = Cluster.connect("couchbases://cb.eh32avgkwwptcnks.cloud.couchbase.com", "jonwilcb", "Pixelj_2112")
+def call(name, connectString, username, password) {
+    def cluster = Cluster.connect(connectString, username, password)
     def bucket = cluster.bucket("travel-sample")
     def scope = bucket.scope("tenant_agent_00")
     def collection = scope.collection("users")

@@ -25,7 +25,7 @@ def call(name) {
     try{
         def docName = collection.get(name)
         return true 
-    }catch(DocumentExistsException docex) {
+    }catch(DocumentNotFoundException docex) {
         def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name).put("PIPELINE_STATUS", "STARTED"))
         return false
     }

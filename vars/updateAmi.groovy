@@ -1,6 +1,9 @@
  @Grab(group='com.couchbase.client', module='java-client', version='3.3.1')
 
 import static com.couchbase.client.java.kv.ReplaceOptions.replaceOptions;
+import static com.couchbase.client.java.kv.MutateInSpec.upsert;
+
+import java.util.Arrays;
 
 import com.couchbase.client.core.error.CouchbaseException;
 import com.couchbase.client.java.Bucket;
@@ -18,12 +21,9 @@ def call(name, key, value, connectString, username, password) {
     def collection = scope.collection("users")
 
     try{
-        def docAMI = collection.get(name)
-        def content = docAMI.contentAsObject()
-        content.put(key, value)
-        collection.replace(name, content, replaceOptions().cas(docAMI.cas()))
+        collection.mutateIn(name, Arrays.asList(upsert("Dev-pipeline", [key:value])))
         return 'success'
-    }catch(cbex) {
+    }catch(e) {
         return 'fail'
     }
     cluster.disconnect()

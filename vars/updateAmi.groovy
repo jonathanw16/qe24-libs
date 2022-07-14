@@ -26,5 +26,5 @@ def call(name, key, value, connectString, username, password) {
     }catch(e) {
         return 'fail'
     }
-    cluster.disconnect()
+
 }

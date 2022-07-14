@@ -19,16 +19,16 @@ import com.couchbase.client.java.kv.ReplicateTo;
 def call(name, connectString, username, password) {
     def cluster = Cluster.connect(connectString, username, password)
     def bucket = cluster.bucket("travel-sample")
+
     def scope = bucket.scope("tenant_agent_00")
     def collection = scope.collection("users")
 
     try{
         def docName = collection.get(name)
         return true 
-    }catch(DocumentNotFoundException docex) {
+    }catch(DocumentNotFoundException e) {
         def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name).put("PIPELINE_STATUS", "STARTED"))
         return false
     }
 
-    cluster.disconnect()
 }

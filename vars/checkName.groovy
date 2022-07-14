@@ -28,8 +28,6 @@ def call(name) {
     }catch(DocumentExistsException docex) {
         def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name).put("PIPELINE_STATUS", "STARTED"))
         return false
-    }catch(e) {
-        println('failed to check name')
     }
 
     cluster.disconnect()

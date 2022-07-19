@@ -9,7 +9,7 @@ pipeline {
         stage('Hello') {
             steps {
                 script{
-                    @Library("sharedLibs@main")_
+                    @Library("sharedLib")_
                     echo 'Hello World'
                 }
             }

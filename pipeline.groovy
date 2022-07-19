@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                scripts{
+                script{
                     library "sharedLibs@main"
                     echo 'Hello World'
                 }

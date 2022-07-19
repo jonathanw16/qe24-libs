@@ -1,5 +1,3 @@
-@Library("qe24-libs")
-
 package com.couchbase.client
 
 pipeline {

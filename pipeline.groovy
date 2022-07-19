@@ -1,5 +1,4 @@
-package com.couchbase.client
-
+library 'vars'
 pipeline {
     agent any
     parameters {

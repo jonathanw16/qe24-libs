@@ -28,7 +28,6 @@ def call(name, connectString, username, password) {
         return true 
     }catch(DocumentNotFoundException e) {
         def status = JsonObject.create()
-            .put("TESTING_STATUS", "NOT STARTED")
             .put("UI_TESTING_STATUS", "NOT STARTED")
             .put("SDK_TESTING_STATUS", "NOT STARTED")
             .put("SERVER_FUNC_TESTING_STATUS", "NOT STARTED")

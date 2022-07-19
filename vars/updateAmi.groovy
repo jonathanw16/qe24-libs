@@ -21,7 +21,7 @@ def call(name, key, value, connectString, username, password) {
     def collection = scope.collection("users")
 
     try{
-        collection.mutateIn(name, Arrays.asList(upsert("DEV_PIPELINE.TESTING_STATUS", value)))
+        collection.mutateIn(name, Arrays.asList(upsert(key, value)))
         return 'success'
     }catch(e) {
         return 'fail'

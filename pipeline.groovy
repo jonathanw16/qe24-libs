@@ -1,4 +1,3 @@
-def func = load "qe24-libs@main/sharedLib"
 pipeline {
     agent any
     parameters {
@@ -9,6 +8,8 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
+                checkout scm
+                def func = load "qe24-libs/sharedLib"
                 echo 'Hello World'
             }
         }

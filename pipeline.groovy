@@ -10,14 +10,14 @@ pipeline {
             steps {
                 
                 echo 'Hello World'
+                
             }
         }
         stage('Get AMI name') {
             steps {
                 echo 'Starting'
                 script {
-                    checkout scm
-                    def func = load "qe24-libs/sharedLib"
+                    def wow = load 'sharedLib'
                     if(checkName("JENKINS_TEST6.DEV_PIPELINE.TESTING_STAt", params.CONNECTSTR, params.USERNAME, params.PASSWORD) == true) {
                         println('success')
                     } else {

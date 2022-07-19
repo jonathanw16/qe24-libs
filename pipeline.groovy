@@ -1,3 +1,5 @@
+Library('sharedLib')_
+
 pipeline {
     agent any
     parameters {

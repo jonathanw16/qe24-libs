@@ -35,8 +35,8 @@ def call(name, connectString, username, password) {
         def upsertResult = collection.upsert(name, JsonObject.create()
             .put("AMI", name)
             .put("PIPELINE_STATUS", "STARTED")
-            .put("DEV_PIPELINE", status)
-            .put("STAGE_PIPELINE", status))
+            .put("dev-pipeline", status)
+            .put("stage-pipeline", status))
         return false
     }
 

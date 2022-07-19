@@ -8,8 +8,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                checkout scm
-                def func = load "qe24-libs/sharedLib"
+                
                 echo 'Hello World'
             }
         }
@@ -17,6 +16,8 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
+                    checkout scm
+                    def func = load "qe24-libs/sharedLib"
                     if(checkName("JENKINS_TEST6.DEV_PIPELINE.TESTING_STAt", params.CONNECTSTR, params.USERNAME, params.PASSWORD) == true) {
                         println('success')
                     } else {

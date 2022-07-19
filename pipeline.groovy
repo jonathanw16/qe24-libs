@@ -1,4 +1,4 @@
-library ('sharedLib@main')
+@Library("qe24-libs/sharedLibs")_
 pipeline {
     agent any
     parameters {

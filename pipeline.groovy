@@ -1,3 +1,4 @@
+@Library("sharedLib")
 pipeline {
     agent any
     parameters {
@@ -9,7 +10,7 @@ pipeline {
         stage('Hello') {
             steps {
                 script{
-                    library "sharedLib"
+                    
                     echo 'Hello World'
                 }
             }

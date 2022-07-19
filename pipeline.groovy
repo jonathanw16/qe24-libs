@@ -1,4 +1,4 @@
-@Library('sharedLib/vars')_
+@Library('qe24-libs/sharedLib')_
 
 pipeline {
     agent any

@@ -1,4 +1,3 @@
-@Library("qe24-libs/sharedLibs")_
 pipeline {
     agent any
     parameters {
@@ -9,9 +8,10 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                
-                echo 'Hello World'
-                
+                scripts{
+                    library "sharedLibs@main"
+                    echo 'Hello World'
+                }
             }
         }
         stage('Get AMI name') {

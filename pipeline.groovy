@@ -1,4 +1,4 @@
-library 'qe24-libs'
+@Library("github.com/jonathanw16/qe24-libs/")_
 pipeline {
     agent any
     parameters {
@@ -9,7 +9,10 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
+                script{
+                    
+                    echo 'Hello World'
+                }
             }
         }
         stage('Get AMI name') {

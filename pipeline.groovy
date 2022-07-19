@@ -1,3 +1,5 @@
+library identifier: 'qe24-libs', retriever: legacySCM(scm)
+
 pipeline {
     agent any
     parameters {
@@ -9,7 +11,6 @@ pipeline {
         stage('Hello') {
             steps {
                 script{
-                    def deez = load 'github.com/jonathanw16/qe24-libs'
                     echo 'Hello World'
                 }
             }

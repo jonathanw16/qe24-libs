@@ -1,4 +1,4 @@
-@Library("github.com/jonathanw16/qe24-libs/tree/main/sharedLib")_
+@Library("github.com/jonathanw16/qe24-libs/")_
 pipeline {
     agent any
     parameters {

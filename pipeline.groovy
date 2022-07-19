@@ -1,4 +1,3 @@
-@Library("github.com/jonathanw16/qe24-libs/")_
 pipeline {
     agent any
     parameters {
@@ -10,7 +9,7 @@ pipeline {
         stage('Hello') {
             steps {
                 script{
-                    
+                    def deez = load 'github.com/jonathanw16/qe24-libs'
                     echo 'Hello World'
                 }
             }

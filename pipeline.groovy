@@ -1,4 +1,4 @@
-library identifier: 'qe24-libs@main', modernSCM([$class: 'GitSCMSource', remote: 'https://github.com/jonathanw16/qe24-libs.git'])
+library identifier: 'qe24-libs@main', modernSCM([$class: 'GitSCMSource', remote: 'https://github.com/jonathanw16/qe24-libs.git', crendentialsId: ''])
 
 pipeline {
     agent any

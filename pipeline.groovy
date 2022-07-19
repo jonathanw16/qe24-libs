@@ -1,4 +1,4 @@
-library 'vars'
+library 'qe24-libs'
 pipeline {
     agent any
     parameters {

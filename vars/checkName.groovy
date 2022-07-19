@@ -27,7 +27,17 @@ def call(name, connectString, username, password) {
         def docName = collection.get(name)
         return true 
     }catch(DocumentNotFoundException e) {
-        def upsertResult = collection.upsert(name, JsonObject.create().put("AMI", name).put("PIPELINE_STATUS", "STARTED"))
+        def status = JsonObject.create()
+            .put("TESTING_STATUS", "NOT STARTED")
+            .put("UI_TESTING_STATUS", "NOT STARTED")
+            .put("SDK_TESTING_STATUS", "NOT STARTED")
+            .put("SERVER_FUNC_TESTING_STATUS", "NOT STARTED")
+            .put("TRIGGER_VOL_TESTING_STATUS", "NOT STARTED")
+        def upsertResult = collection.upsert(name, JsonObject.create()
+            .put("AMI", name)
+            .put("PIPELINE_STATUS", "STARTED")
+            .put("DEV_PIPELINE", status)
+            .put("STAGE_PIPELINE", status))
         return false
     }
 

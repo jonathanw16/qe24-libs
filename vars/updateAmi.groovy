@@ -20,11 +20,11 @@ def call(name, key, value, connectString, username, password) {
     def scope = bucket.scope("tenant_agent_00")
     def collection = scope.collection("users")
 
-    //try{
-        collection.mutateIn(name, Arrays.asList(upsert("Dev-pipeline", [key:value])))
+    try{
+        collection.mutateIn(name, Arrays.asList(upsert("DEV_PIPELINE.TESTING_STATUS", true)))
         return 'success'
-    //}catch(e) {
-    //    return 'fail'
-    //}
+    }catch(e) {
+        return 'fail'
+    }
 
 }

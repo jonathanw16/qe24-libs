@@ -1,4 +1,4 @@
-def func = load "sharedLib"
+def func = load "qe24-libs@main/sharedLib"
 pipeline {
     agent any
     parameters {

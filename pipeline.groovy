@@ -1,4 +1,4 @@
-library identifier: 'qe24-libs@main', retriever: modernSCM(scm)
+library identifier: 'qe24-libs@main'
 
 pipeline {
     agent any

@@ -19,7 +19,6 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    def wow = load 'sharedLib'
                     if(checkName("JENKINS_TEST6.DEV_PIPELINE.TESTING_STAt", params.CONNECTSTR, params.USERNAME, params.PASSWORD) == true) {
                         println('success')
                     } else {

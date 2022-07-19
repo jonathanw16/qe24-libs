@@ -1,5 +1,4 @@
-@Library('sharedLib@main')_
-
+def func = load "sharedLib"
 pipeline {
     agent any
     parameters {

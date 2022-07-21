@@ -16,9 +16,9 @@ import com.couchbase.client.java.kv.MutationResult;
 
 def call(name, key, value, connectString, username, password) {
     def cluster = Cluster.connect(connectString, username, password)
-    def bucket = cluster.bucket("travel-sample")
-    def scope = bucket.scope("tenant_agent_00")
-    def collection = scope.collection("users")
+    def bucket = cluster.bucket("qe24_status")
+    def scope = bucket.scope("_default")
+    def collection = scope.collection("_default")
 
     try{
         collection.mutateIn(name, Arrays.asList(upsert(key, value)))
@@ -26,5 +26,4 @@ def call(name, key, value, connectString, username, password) {
     }catch(e) {
         return 'fail'
     }
-
 }

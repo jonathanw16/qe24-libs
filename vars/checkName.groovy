@@ -18,10 +18,9 @@ import com.couchbase.client.java.kv.ReplicateTo;
 
 def call(name, connectString, username, password) {
     def cluster = Cluster.connect(connectString, username, password)
-    def bucket = cluster.bucket("travel-sample")
-
-    def scope = bucket.scope("tenant_agent_00")
-    def collection = scope.collection("users")
+    def bucket = cluster.bucket("qe24_status")
+    def scope = bucket.scope("_default")
+    def collection = scope.collection("_default")
 
     try{
         def docName = collection.get(name)
@@ -29,8 +28,9 @@ def call(name, connectString, username, password) {
     }catch(DocumentNotFoundException e) {
         def upsertResult = collection.upsert(name, JsonObject.create()
             .put("AMI", name)
-            .put("dev-pipeline", ["PIPELINE_STATUS":null])
-            .put("stage-pipeline", ["PIPELINE_STATUS":null]))
+            .put("PIPELINE_STATUS", "STARTED")
+            .put("dev-pipeline", [:])
+            .put("stage-pipeline", [:]))
         return false
     }
 

@@ -29,8 +29,8 @@ def call(name, connectString, username, password) {
     }catch(DocumentNotFoundException e) {
         def upsertResult = collection.upsert(name, JsonObject.create()
             .put("AMI", name)
-            .put("dev-pipeline", ["PIPELINE_STATUS":null])
-            .put("stage-pipeline", ["PIPELINE_STATUS":null]))
+            .put("dev-pipeline", null)
+            .put("stage-pipeline", null))
         return false
     }
 

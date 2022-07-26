@@ -31,21 +31,21 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                   println(updateAmi("TEST_DOC", "dev-pipeline.TEST11", "TEST", params.CONNECTSTR, params.USERNAME, params.PASSWORD))
+                   println(updateAmi("TEST_DOC", "dev-pipeline.TEST11", "TEST", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD)))
                 }
             }
         }
         stage('TESTS') {
             steps {
                 script {
-                    updateAmi("TEST_DOC", "dev-pipeline.test33", "test", params.CONNECTSTR, params.USERNAME, params.PASSWORD)
+                    updateAmi("TEST_DOC", "dev-pipeline.test33", "test", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
                 }
             }
         }
         stage('tests2') {
             steps {
                 script {
-                    updateAmi("TEST_DOC", "dev-pipeline.test22", "test", params.CONNECTSTR, params.USERNAME, params.PASSWORD)
+                    updateAmi("TEST_DOC", "dev-pipeline.test22", "test", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
                 }
             }
         }
@@ -53,11 +53,11 @@ pipeline {
     }
     post {
             success {
-                updateAmi("TEST_DOC", "dev-pipeline.TEST10", "SUCCESS", params.CONNECTSTR, params.USERNAME, params.PASSWORD)
+                updateAmi("TEST_DOC", "dev-pipeline.TEST10", "SUCCESS", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
 
             }
             failure {
-                updateAmi("TEST_DOC", "dev-pipeline.TEST61", "FAIL", params.CONNECTSTR, params.USERNAME, params.PASSWORD)
+                updateAmi("TEST_DOC", "dev-pipeline.TEST61", "FAIL", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
 
             }
         }

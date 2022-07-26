@@ -63,36 +63,3 @@ pipeline {
         }
 }
 
-def checkName(name, connectString, username, password) {
-    def cluster = Cluster.connect(connectString, username, password)
-    def bucket = cluster.bucket("qe24_status")
-    def scope = bucket.scope("_default")
-    def collection = scope.collection("_default")
-
-    try{
-        def docName = collection.get(name)
-        return true 
-    }catch(DocumentNotFoundException e) {
-        def upsertResult = collection.upsert(name, JsonObject.create()
-            .put("dev-pipeline", [:])
-            .put("stage-pipeline", [:])
-            .put("AMI", name)
-            .put("PIPELINE_STATUS", "STARTED"))
-        return false
-    }
-
-}
-
-def updateAmi(name, key, value, connectString, username, password) {
-    def cluster = Cluster.connect(connectString, username, password)
-    def bucket = cluster.bucket("qe24_status")
-    def scope = bucket.scope("_default")
-    def collection = scope.collection("_default")
-
-    try{
-        collection.mutateIn(name, Arrays.asList(upsert(key, value)))
-        return 'success'
-    }catch(e) {
-        return 'fail'
-    }
-}

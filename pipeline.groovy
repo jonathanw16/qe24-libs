@@ -1,4 +1,4 @@
-library 'libbys@main'
+library "libbys@main"
 
 pipeline {
     agent any

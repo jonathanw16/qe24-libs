@@ -1,10 +1,10 @@
-@Library(['checkName', 'updateAmi'])_
+@Library('qe24-libs')_
 
 pipeline {
     agent any
     parameters {
         string(name: 'USERNAME', defaultValue: 'pipeline-user', description: 'username')
-        string(name: 'PASSWORD', defaultValue: 'Passw0rd$', description: 'use this password')
+        password(name: 'PASSWORD', defaultValue: 'Passw0rd$', description: 'use this password')
         string(name: 'CONNECTSTR', defaultValue: 'couchbases://cb.7wy-kwqtahmriwk.cloud.couchbase.com', description: 'connectionstring')
     }
     stages {

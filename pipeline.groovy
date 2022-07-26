@@ -19,11 +19,7 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    if(checkName("TEST_DOC", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}") == true) {
-                        println('success')
-                    } else {
-                        println('fail')
-                    }
+                    sh 'python main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST'
                 }
             }
         }

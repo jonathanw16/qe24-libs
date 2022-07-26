@@ -12,6 +12,8 @@ pipeline {
             steps {
                 script{
                     echo 'Hello World'
+                    def deez = load "checkName.groovy"
+                    //def weez = load "updateAmi.groovy"
                 }
             }
         }
@@ -19,7 +21,7 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    if(checkName("TEST_DOC", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}") == true) {
+                    if(deez.checkName("TEST_DOC", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}") == true) {
                         println('success')
                     } else {
                         println('fail')

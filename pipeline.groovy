@@ -1,4 +1,4 @@
-library "libbys@main"
+@Library("qe24-libs/libbys@main")
 
 pipeline {
     agent any

@@ -1,26 +1,4 @@
-
-@Grab(group='com.couchbase.client', module='java-client', version='3.3.1')
-
-import com.couchbase.client.core.error.CouchbaseException;
-import com.couchbase.client.core.error.DocumentExistsException;
-import com.couchbase.client.core.error.DocumentNotFoundException;
-
-import static com.couchbase.client.java.kv.ReplaceOptions.replaceOptions;
-import static com.couchbase.client.java.kv.MutateInSpec.upsert;
-
-import java.util.Arrays;
-
-import com.couchbase.client.java.AsyncCollection;
-import com.couchbase.client.java.Bucket;
-import com.couchbase.client.java.Cluster;
-import com.couchbase.client.java.Collection;
-import com.couchbase.client.java.ReactiveCollection;
-import com.couchbase.client.java.Scope;
-import com.couchbase.client.java.json.JsonObject;
-import com.couchbase.client.java.kv.GetResult;
-import com.couchbase.client.java.kv.MutationResult;
-import com.couchbase.client.java.kv.PersistTo;
-import com.couchbase.client.java.kv.ReplicateTo;
+@Library(['checkName', 'updateAmi'])_
 
 pipeline {
     agent any

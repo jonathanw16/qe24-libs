@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    if(checkName("TEST_DOC", params.CONNECTSTR, params.USERNAME, params.PASSWORD) == true) {
+                    if(checkName("TEST_DOC", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}") == true) {
                         println('success')
                     } else {
                         println('fail')
@@ -31,21 +31,21 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                   println(updateAmi("TEST_DOC", "dev-pipeline.TEST11", "TEST", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD)))
+                   println(updateAmi("TEST_DOC", "dev-pipeline.TEST11", "TEST", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}"))
                 }
             }
         }
         stage('TESTS') {
             steps {
                 script {
-                    updateAmi("TEST_DOC", "dev-pipeline.test33", "test", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
+                    updateAmi("TEST_DOC", "dev-pipeline.test33", "test", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}")
                 }
             }
         }
         stage('tests2') {
             steps {
                 script {
-                    updateAmi("TEST_DOC", "dev-pipeline.test22", "test", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
+                    updateAmi("TEST_DOC", "dev-pipeline.test22", "test", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}")
                 }
             }
         }
@@ -53,11 +53,11 @@ pipeline {
     }
     post {
             success {
-                updateAmi("TEST_DOC", "dev-pipeline.TEST10", "SUCCESS", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
+                updateAmi("TEST_DOC", "dev-pipeline.TEST10", "SUCCESS", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}")
 
             }
             failure {
-                updateAmi("TEST_DOC", "dev-pipeline.TEST61", "FAIL", params.CONNECTSTR, params.USERNAME, Secret.toString(params.PASSWORD))
+                updateAmi("TEST_DOC", "dev-pipeline.TEST61", "FAIL", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}")
 
             }
         }

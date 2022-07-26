@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script{
                     echo 'Hello World'
-                    def deez = load "checkName.groovy"
+                    def deez = load "vars/checkName.groovy"
                     //def weez = load "updateAmi.groovy"
                 }
             }

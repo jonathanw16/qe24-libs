@@ -20,7 +20,7 @@ pipeline {
                 echo 'Starting'
                 script {
                     newDoc = bat (script: "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST", returnStatus: true)
-                    echo newDoc
+                    echo "${newDoc}"
                 }
             }
         }

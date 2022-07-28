@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                   println(updateAmi("TEST_DOC", "dev-pipeline.TEST11", "TEST", params.CONNECTSTR, params.USERNAME, "${params.PASSWORD}"))
+                    bat "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST3 -a update -k test -v test"
                 }
             }
         }

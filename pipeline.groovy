@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    sh 'python main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST'
+                    sh "python main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST"
                 }
             }
         }

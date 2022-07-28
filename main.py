@@ -64,17 +64,21 @@ class updateAMI:
     def checkname(self):
         try:
             result = self.coll.get(self.name)
+            print("Found")
             return True
         except Exception as e:
             document = {"AMI" : self.name, "PIPELINE_STATUS" : "STARTED"}
             result = self.coll.insert(self.name, document)
+            print("Created")
             return False
     
     def updateDoc(self):
         try:
             self.coll.mutate_in(self.name, [SD.upsert(self.key, self.value)])
+            print("Success")
             return "Success"
         except Exception as e:
+            print("Failed")
             return "Failed"
 
 if __name__ == '__main__':
@@ -86,4 +90,5 @@ if __name__ == '__main__':
         update_ami.updateDoc()
     else:
         print("invalid action")
+
 

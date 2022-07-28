@@ -21,7 +21,7 @@ pipeline {
                 script {
                     def lines = bat(script: 'dir', returnStdout: true)
                     echo lines
-                    bat 'python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST'
+                    bat "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST"
                 }
             }
         }

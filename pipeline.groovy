@@ -19,7 +19,8 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    pwsh'python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST'
+                    sh 'ls'
+                    sh 'python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST'
                 }
             }
         }

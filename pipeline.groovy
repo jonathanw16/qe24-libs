@@ -19,9 +19,8 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    def lines = bat(script: 'dir', returnStdout: true)
-                    echo lines
-                    bat "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST"
+                    newDoc = bat (script: "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST", returnStatus = true)
+                    echo newDoc
                 }
             }
         }

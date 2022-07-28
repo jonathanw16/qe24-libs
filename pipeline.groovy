@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    def lines = script: 'dir', returnStdout: true
+                    def lines =sh(script: 'dir', returnStdout: true)
                     echo lines
                     sh 'python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m PYTEST'
                 }

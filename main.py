@@ -8,7 +8,7 @@ from datetime import datetime
 from http.client import RemoteDisconnected, IncompleteRead
 from datetime import timedelta
 
-from couchbase.auth import PasswordAuthenticator
+from couchbase_core.cluster import PasswordAuthenticator
 from couchbase.options import ClusterOptions, ClusterTimeoutOptions
 from couchbase.cluster import Cluster, QueryOptions
 import couchbase.subdocument as SD

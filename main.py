@@ -60,7 +60,7 @@ class updateAMI:
         timeout_opts = ClusterTimeoutOptions(kv_timeout=timedelta(seconds=120), query_timeout=timedelta(seconds=10), connect_timeout=timedelta(seconds=30))
         auth = PasswordAuthenticator(self.username, self.password)
         self.cluster = Cluster(self.connectstring, ClusterOptions(auth, timeout_options=timeout_opts))
-        self.cb = self.cluster.bucket("test")
+        self.cb = self.cluster.bucket("qe24_status")
         self.coll = self.cb.scope("_default").collection("_default")
 
     def checkname(self):

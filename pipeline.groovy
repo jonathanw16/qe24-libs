@@ -22,7 +22,9 @@ pipeline {
             steps {
                 echo 'Starting'
                 script {
-                    bat "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m amitest -a update -k dev.test -v w"
+                    def we = "dev"
+                    def aw = "test"
+                    bat "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m amitest -a update -k ${we}.${aw} -v w"
                 }
             }
         }

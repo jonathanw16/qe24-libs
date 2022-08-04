@@ -41,7 +41,7 @@ class updateAMI:
         parser.add_argument("-m", "--name", help="Name of AMI")
         parser.add_argument("-k", "--key", help="Key to be added")
         parser.add_argument("-v", "--value", help="Value to be added")
-        parser.add_argument("-e", "--env", help="Pipeline Environment")
+        parser.add_argument("-e", "--env", help="Pipeline Environment", default="dev")
         parser.add_argument("-a", "--action",
                             choices=["checkname", "update", "latest"],
                             help="Choose an action to be performed. Valid actions : checkname, update",
@@ -91,7 +91,7 @@ class updateAMI:
                 print(entry["AMI"])
             return True
         except Exception:
-            print("wWAWWAW I FAILED MANNNN")
+            print("No Previous AMI Found")
             return False
 
 if __name__ == '__main__':

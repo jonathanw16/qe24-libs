@@ -5,7 +5,7 @@ pipeline {
     parameters {
         string(name: 'USERNAME', defaultValue: 'pipeline-user', description: 'username')
         password(name: 'PASSWORD', defaultValue: 'Passw0rd$', description: 'use this password')
-        string(name: 'CONNECTSTR', defaultValue: 'couchbases://cb.7wy-kwqtahmriwk.cloud.couchbase.com', description: 'connectionstring')
+        string(name: 'CONNECTSTR', defaultValue: 'couchbases://cb.jtsutglfipogkncn.cloud.couchbase.com', description: 'connectionstring')
     }
     stages {
         stage('Hello') {

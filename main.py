@@ -8,7 +8,7 @@ from datetime import datetime
 from http.client import RemoteDisconnected, IncompleteRead
 from datetime import timedelta
 
-from couchbase_core.cluster import PasswordAuthenticator
+from couchbase.auth import PasswordAuthenticator
 from couchbase.options import ClusterOptions, ClusterTimeoutOptions
 from couchbase.cluster import Cluster, QueryOptions
 import couchbase.subdocument as SD
@@ -67,18 +67,16 @@ class updateAMI:
             print("Found")
             return True
         except Exception as e:
-            document = {"AMI" : self.name, "PIPELINE_STATUS" : "STARTED"}
+            document = {"AMI" : self.name, "dev" : {"PIPELINE_STATUS" : "STARTED"}, "stage" : {"PIPELINE_STATUS" : "NOT STARTED"}}
             result = self.coll.insert(self.name, document)
-            print("Created")
+            print("Doc Created")
             return False
     
     def updateDoc(self):
         try:
             self.coll.mutate_in(self.name, [SD.upsert(self.key, self.value)])
-            print("Success")
             return "Success"
         except Exception as e:
-            print("Failed")
             return "Failed"
 
 if __name__ == '__main__':
@@ -90,5 +88,3 @@ if __name__ == '__main__':
         update_ami.updateDoc()
     else:
         print("invalid action")
-
-

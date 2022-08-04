@@ -1,4 +1,4 @@
- @Grab(group='com.couchbase.client', module='java-client', version='3.3.1')
+@Grab(group='com.couchbase.client', module='java-client', version='3.3.1')
 
 import com.couchbase.client.core.error.CouchbaseException;
 import com.couchbase.client.core.error.DocumentExistsException;

@@ -1,4 +1,4 @@
- @Grab(group='com.couchbase.client', module='java-client', version='3.3.1')
+@Grab(group='com.couchbase.client', module='java-client', version='3.3.1')
 
 import static com.couchbase.client.java.kv.ReplaceOptions.replaceOptions;
 import static com.couchbase.client.java.kv.MutateInSpec.upsert;

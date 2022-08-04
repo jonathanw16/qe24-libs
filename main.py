@@ -87,8 +87,10 @@ class updateAMI:
             )
             for entry in result:
                 print(entry["AMI"])
+            return True
         except Exception:
             print("wWAWWAW I FAILED MANNNN")
+            return False
 
 if __name__ == '__main__':
     update_ami = updateAMI()

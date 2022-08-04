@@ -85,7 +85,8 @@ class updateAMI:
                 "select AMI from `test`._default._default where dev.test=$1",
                 "w"
             )
-            print(result['AMI'])
+            for entry in result:
+                print(entry["AMI"])
         except Exception:
             print("wWAWWAW I FAILED MANNNN")
 

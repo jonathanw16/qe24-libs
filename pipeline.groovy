@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     echo 'Starting'
-                    latest = bat (script: "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -a latest", returnStdout: true)
+                    latest = bat (script: "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -a latest -e dev", returnStdout: true)
                     echo latest
                 }
                 

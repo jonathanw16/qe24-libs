@@ -41,6 +41,7 @@ class updateAMI:
         parser.add_argument("-m", "--name", help="Name of AMI")
         parser.add_argument("-k", "--key", help="Key to be added")
         parser.add_argument("-v", "--value", help="Value to be added")
+        parser.add_argument("-e", "--env", help="Pipeline Environment")
         parser.add_argument("-a", "--action",
                             choices=["checkname", "update", "latest"],
                             help="Choose an action to be performed. Valid actions : checkname, update",
@@ -54,6 +55,7 @@ class updateAMI:
         self.name = args.name
         self.key = args.key
         self.value = args.value
+        self.env = args.env
         
         timeout_opts = ClusterTimeoutOptions(kv_timeout=timedelta(seconds=120), query_timeout=timedelta(seconds=10), connect_timeout=timedelta(seconds=30))
         auth = PasswordAuthenticator(self.username, self.password)
@@ -82,8 +84,8 @@ class updateAMI:
     def getLatest(self):
         try:
             result = self.cluster.query(
-                "select AMI from `test`._default._default where dev.test=$1",
-                "w"
+                "select AMI from `qe24_status` where {}.latest=$1".format(self.env),
+                True
             )
             for entry in result:
                 print(entry["AMI"])

@@ -24,7 +24,8 @@ pipeline {
                 script {
                     def we = "dev"
                     def aw = "test"
-                    bat "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m amitest -a update -k ${we}.${aw} -v true"
+                    def ew = true
+                    bat "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -m amitest -a update -k ${we}.${aw} -v ${ew}"
                 }
             }
         }

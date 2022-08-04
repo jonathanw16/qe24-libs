@@ -42,7 +42,7 @@ class updateAMI:
         parser.add_argument("-k", "--key", help="Key to be added")
         parser.add_argument("-v", "--value", help="Value to be added")
         parser.add_argument("-a", "--action",
-                            choices=["checkname", "update"],
+                            choices=["checkname", "update", "latest"],
                             help="Choose an action to be performed. Valid actions : checkname, update",
                             default="checkname")
 
@@ -79,6 +79,17 @@ class updateAMI:
         except Exception as e:
             return "Failed"
 
+    def getLatest(self):
+        try:
+            result = self.cluster.query(
+                "select AMI from `test`._default._default where dev.test=$1",
+                "w"
+            )
+            for entry in result:
+                print(entry)
+        except Exception:
+            print("wWAWWAW I FAILED MANNNN")
+
 if __name__ == '__main__':
     update_ami = updateAMI()
 
@@ -86,5 +97,7 @@ if __name__ == '__main__':
         update_ami.checkname()
     elif update_ami.action == "update":
         update_ami.updateDoc()
+    elif update_ami.action == "latest":
+        update_ami.getLatest()
     else:
         print("invalid action")

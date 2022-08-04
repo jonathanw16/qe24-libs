@@ -34,6 +34,9 @@ pipeline {
                     echo 'Starting'
                     latest = bat (script: "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -a latest -e dev", returnStdout: true)
                     echo latest
+                    if (latest == "couchbase-serverless-server-7.2.0-1741") {
+                        echo 'HILLO'
+                    }
                 }
                 
             }

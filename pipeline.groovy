@@ -34,7 +34,7 @@ pipeline {
                     echo 'Starting'
                     latest = bat (script: "python3 main.py -u ${params.USERNAME} -p ${params.PASSWORD} -c ${params.CONNECTSTR} -a latest -e dev", returnStdout: true)
                     echo latest
-                    if (latest == "C:\Users\Jonathan Wilcox\AppData\Local\Jenkins\.jenkins\workspace\TEST>python3 main.py -u pipeline-user -p Passw0rd$ -c couchbases://cb.7wy-kwqtahmriwk.cloud.couchbase.com -a latest -e dev 
+                    if (latest == "C:\\Users\\Jonathan Wilcox\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\TEST>python3 main.py -u pipeline-user -p Passw0rd$ -c couchbases://cb.7wy-kwqtahmriwk.cloud.couchbase.com -a latest -e dev 
 couchbase-serverless-server-7.2.0-1741") {
                         echo 'HILLO'
                     }

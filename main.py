@@ -74,8 +74,8 @@ class updateAMI:
     def getLatest(self):
         try:
             result = self.cluster.query(
-                "select AMI from `test` where {}.latest=$1".format(self.env),
-                True
+                "select AMI from `test` where {}.latest=$1 and {}.latest=$2".format(self.env),
+                True, "STARTED"
             )
             for entry in result:
                 print(entry["AMI"])

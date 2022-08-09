@@ -78,7 +78,7 @@ class updateAMI:
                 True, "STARTED"
             )
             for entry in result:
-                self.coll.mutate_in(entry["AMI"], [SD.upsert("{env}.PIPELINE_STATUS".format(self.env), False)])
+                self.coll.mutate_in(entry["AMI"], [SD.upsert("{}.PIPELINE_STATUS".format(self.env), False)])
             return True
         except Exception:
             print("No Previous AMI Found")

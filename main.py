@@ -74,7 +74,7 @@ class updateAMI:
     def getLatest(self):
         try:
             result = self.cluster.query(
-                "select AMI from `test` where {}.latest=$1 and {}.PIPELINE_STATUS=$2".format(self.env),
+                "select AMI from `test` where {}.latest=$1 and {}.PIPELINE_STATUS=$2".format(self.env, self.env),
                 True, "STARTED"
             )
             for entry in result:

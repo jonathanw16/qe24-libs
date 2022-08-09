@@ -1,10 +1,3 @@
-import base64
-import copy
-import socket
-import string
-import sys
-import threading
-from datetime import datetime
 from http.client import RemoteDisconnected, IncompleteRead
 from datetime import timedelta
 
@@ -24,10 +17,7 @@ from couchbase.collection import (
     IncrementOptions,
     DecrementOptions)
 
-import random
 import argparse
-import logging
-import time
 import json
 
 
